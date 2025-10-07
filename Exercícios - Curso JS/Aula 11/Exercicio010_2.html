@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DETRAN</title>
+</head>
+<body>
+    <h1>Sistema de Multas</h1>
+    Velocidade do carro: <input type="number" name="txtvel" id="txtlevel"> km/h
+    <input type="button" value="Checar" onclick="calcular()">
+    <div id="resultado">
+
+    </div>
+    
+    <script>
+        function calcular() {
+            //Criando variável que vai pegar o que foi digitado no input type="number"
+            var txtvel = window.document.getElementById("txtlevel");
+            // Vai pegar a <div> com o id="resultado"
+            var resultado = window.document.querySelector('div#resultado');
+            //Apesar de ser type number, o getElement transformar ele texto, então abaixo vamos transformar ele em number
+            var velocidade = Number(txtvel.value);
+
+            resultado.innerHTML = `<p>Sua velocidade é de ${velocidade} km/h</p>`
+            if (velocidade > 60) {
+                resultado.innerHTML += "<p>Você está acima do limite de velodicidade</p>"
+            } else {
+                resultado.innerHTML += '<p>Você está dentro do limite de velocidade permitido</p>'
+            }
+        }
+    </script>
+</body>
+</html>

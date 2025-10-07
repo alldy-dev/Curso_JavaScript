@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Somando Números</title>
+</head>
+<body>
+    <h1>Somando Valores</h1>
+    <input type="number" name="txtn1" id="txtn1" value="">
+    <input type="number" name="txtn2" id="txtn2" value="">
+    <input type="button" value="Somar" onclick="somar()">
+    <div id='resultado'>Resultado</div>
+    <script>
+        function somar() {
+            var tn1 = window.document.getElementById('txtn1') //pegou o elemento pelo seu id
+            var tn2 = window.document.querySelector('input#txtn2') //pegou o elemento pelo input e seu id
+            var resultado = window.document.getElementById('resultado') //pegou o elemento pelo seu id
+            //acima as variáveis pegam o conteúdo dos elementos, mas deixa eles como string, mesmo que o atributo no elemento input seja number, o seletor de elemento no JS vai deixar ele em string. Então é necessário transformar ele para number
+
+            var n1 = Number(tn1.value) //Transforma a string em number
+            var n2 = parseFloat(tn2.value) //Transforma a string em Float
+            var s = n1 + n2
+            resultado.innerText = `A soma entre ${n1} + ${n2} é igual a ${s}` //lembra-se que no placeholder é crase, e não aspas
+        }
+    </script>
+</body>
+</html>
